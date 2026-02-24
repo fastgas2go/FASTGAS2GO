@@ -533,17 +533,8 @@
       const areasGroup = document.getElementById("areas-group");
       const areasToggle = areasGroup?.querySelector(".menu-subtoggle");
       const menuBrandFill = document.querySelector(".menu-brand-fill[data-home-link]");
-      const debugRunId = "desktop-baseline";
 
       const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
-
-      // #region agent log
-      window.addEventListener("load", () => {
-        const pageRect = document.querySelector(".page")?.getBoundingClientRect();
-        const heroRect = document.querySelector(".hero-box")?.getBoundingClientRect();
-        fetch('http://127.0.0.1:7650/ingest/53d66ec2-b24e-41ab-b43a-6094a5ef3c41',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'34b64b'},body:JSON.stringify({sessionId:'34b64b',runId:debugRunId,hypothesisId:'D2',location:'contact.html:script',message:'desktop_layout_metrics',data:{isDesktop:window.innerWidth>=1024,innerWidth:window.innerWidth,pageWidth:pageRect?Math.round(pageRect.width):null,pageTop:pageRect?Math.round(pageRect.top):null,heroWidth:heroRect?Math.round(heroRect.width):null},timestamp:Date.now()})}).catch(()=>{});
-      }, { once: true });
-      // #endregion
 
       const hidePreloader = () => {
         if (preloader instanceof HTMLElement) {
