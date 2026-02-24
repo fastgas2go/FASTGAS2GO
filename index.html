@@ -29,7 +29,7 @@
       "@type": "LocalBusiness",
       "name": "FASTGAS2GO",
       "url": "https://fastgas2go.nl/",
-      "telephone": "+31616467173",
+      "telephone": "+31687086079",
       "description": "FASTGAS2GO biedt 24/7 service in Amsterdam en omgeving met focus op snelheid, discretie en klantservice.",
       "areaServed": [
         "Amsterdam",
@@ -250,7 +250,7 @@
       width: 46px;
       height: 46px;
       border-radius: 12px;
-      border: 1px solid rgba(175, 208, 245, 0.28);
+      border: 1px solid rgba(154, 206, 255, 0.34);
       background: rgba(8, 18, 34, 0.62);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
@@ -271,7 +271,7 @@
       display: block;
       width: 18px;
       height: 2px;
-      background: currentColor;
+      background: #ffd84a;
       border-radius: 999px;
       content: "";
       transition: transform 220ms ease, opacity 220ms ease;
@@ -367,9 +367,48 @@
       border-radius: 10px;
       border: 1px solid rgba(141, 199, 255, 0.28);
       background: rgba(11, 24, 43, 0.52);
-      color: #eef5ff;
+      color: #ffd84a;
       font: 700 1.3rem/1 "Inter", "Segoe UI", Arial, sans-serif;
       cursor: pointer;
+    }
+
+    .menu-brand-fill {
+      all: unset;
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 18px 12px 10px;
+      border-top: 1px solid rgba(141, 199, 255, 0.2);
+      display: grid;
+      gap: 2px;
+      min-height: clamp(220px, 36vh, 320px);
+      align-content: center;
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 800;
+      font: 800 clamp(2.4rem, 11vw, 4.8rem) / 1 "Inter", "Segoe UI", Arial, sans-serif;
+      color: #f2f7ff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .menu-brand-fill span {
+      display: block;
+    }
+
+    .menu-links > .menu-brand-fill:hover,
+    .menu-links > .menu-brand-fill:focus-visible,
+    .menu-links > .menu-brand-fill:active {
+      color: #f2f7ff;
+      outline: none;
+    }
+
+    .menu-brand-fill span:last-child {
+      color: #ffd84a;
+      text-shadow:
+        0 0 8px rgba(255, 216, 74, 0.45),
+        0 0 18px rgba(255, 216, 74, 0.2);
     }
 
     .menu-links {
@@ -419,6 +458,7 @@
     .menu-subtoggle::after {
       content: "+";
       font-weight: 700;
+      color: #ffd84a;
       opacity: 0.92;
       transition: transform 180ms ease;
     }
@@ -556,6 +596,10 @@
       letter-spacing: 0.01em;
     }
 
+    .hero-desktop-extra {
+      display: none;
+    }
+
     .cta {
       --pulse-dur: 5.8s;
       --pulse-delay: 0s;
@@ -643,6 +687,10 @@
     .cta--call .cta__label,
     .cta--wa .cta__label {
       text-shadow: 0 1px 8px rgba(0, 0, 0, 0.62);
+    }
+
+    .cta--wa .cta__label {
+      color: #ffd84a;
     }
 
     .cta:focus-visible {
@@ -829,6 +877,70 @@
       }
     }
 
+    @media (min-width: 1025px) {
+      .bg {
+        display: block;
+      }
+
+      .scene-top {
+        position: relative;
+        inset: auto;
+        height: 50%;
+        flex: none;
+        background: #000 url("achtergrond-boven.png") center top / auto no-repeat;
+      }
+
+      .scene-top .bg-top-video {
+        display: none;
+      }
+
+      .scene-bottom {
+        display: block;
+        height: 50%;
+        flex: none;
+        background-size: cover;
+        background-position: center 58%;
+      }
+
+      .seam-merge {
+        display: block;
+        height: clamp(20px, 3.2vh, 30px);
+      }
+
+      .hero-copy {
+        left: clamp(20px, 5.2vw, 84px);
+        right: auto;
+        width: min(660px, calc(100vw - 180px));
+        text-align: left;
+      }
+
+      .hero-desktop-extra {
+        display: block;
+        margin-top: 18px;
+      }
+
+      .hero-desktop-extra p {
+        margin: 0 0 12px;
+        font: 500 1rem/1.45 "Inter", "Segoe UI", Arial, sans-serif;
+        color: rgba(225, 238, 255, 0.92);
+        max-width: 58ch;
+      }
+
+      .hero-desktop-extra ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        display: grid;
+        gap: 8px;
+        font: 600 0.98rem/1.35 "Inter", "Segoe UI", Arial, sans-serif;
+        color: rgba(213, 231, 255, 0.96);
+      }
+
+      .hero-desktop-extra .hero-chip {
+        width: fit-content;
+      }
+    }
+
     @media (max-height: 760px) {
       .cta-stack {
         top: calc(50vh - (var(--btn-h) / 2) + 56px - var(--cta-lift));
@@ -923,6 +1035,12 @@
       line-height: 1.5;
     }
 
+    .seo-keyword {
+      color: #ffd84a;
+      font-weight: 700;
+    }
+
+
     .footer-bottom {
       width: min(980px, 100%);
       margin: 22px auto 0;
@@ -976,7 +1094,7 @@
   <nav class="menu-panel" id="main-menu" aria-label="Hoofdmenu">
     <div class="menu-header">
       <p class="menu-title">Menu</p>
-      <button class="menu-close" type="button" aria-label="Sluit menu">×</button>
+      <button class="menu-close" type="button" aria-label="Sluit menu">x</button>
     </div>
     <div class="menu-links">
       <a href="overons.html">Over ons</a>
@@ -1025,6 +1143,11 @@
         </ul>
       </div>
       <a href="contact.html">Contact</a>
+      <div class="menu-brand-fill" role="link" tabindex="0" aria-label="Ga naar fastgas2go.nl" data-home-link="https://fastgas2go.nl">
+        <span>FAST</span>
+        <span>GAS</span>
+        <span>2GO</span>
+      </div>
     </div>
   </nav>
 
@@ -1049,17 +1172,28 @@
         <li><span class="hero-chip">Binnen 20 minuten <br> bezorgd</span></li>
         <li><span class="hero-chip">Supersnelle support via <br> WhatsApp</span></li>
       </ul>
+      <div class="hero-desktop-extra" aria-hidden="true">
+        <p>FASTGAS2GO levert snel en discreet in Amsterdam <br> en omstreken met 24/7 bereikbaarheid <br> en professionele service.</p>
+        <p>Op desktop zie je direct meer service-informatie, <br> zodat je sneller kunt kiezen tussen bellen, WhatsApp <br> en onze aanvullende pagina’s.</p>
+        <ul>
+          <li><span class="hero-chip">Realtime routeplanning voor snellere levering</span></li>
+          <li><span class="hero-chip">Direct contact via telefoon en WhatsApp</span></li>
+          <li><span class="hero-chip">Duidelijke service, ook in de late uren</span></li>
+          <li><span class="hero-chip">Transparante communicatie van aanvraag tot afhandeling</span></li>
+          <li><span class="hero-chip">Actief in Amsterdam, Amstelveen, Diemen en omliggende gebieden</span></li>
+        </ul>
+      </div>
     </div>
 
     <div class="cta-stack">
-      <a class="cta cta--call" href="tel:+31616467173" aria-label="Bel">
+      <a class="cta cta--call" href="tel:+31687086079" aria-label="Bel">
         <svg class="cta__icon cta__icon--call" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M21 16.4V20a2 2 0 0 1-2.18 2A19.9 19.9 0 0 1 10.1 18.9 19.5 19.5 0 0 1 5.1 13.9 19.9 19.9 0 0 1 2 5.16 2 2 0 0 1 3.99 3h3.6a2 2 0 0 1 2 1.72c.12.91.34 1.81.67 2.66a2 2 0 0 1-.45 2.11L8.3 11a16 16 0 0 0 4.7 4.7l1.5-1.5a2 2 0 0 1 2.11-.45c.85.33 1.75.55 2.66.67A2 2 0 0 1 21 16.4Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
         <span class="cta__label">Bel</span>
       </a>
 
-      <a class="cta cta--wa" href="https://wa.me/31616467173" aria-label="WhatsApp">
+      <a class="cta cta--wa" href="https://wa.me/31687086079" aria-label="WhatsApp">
         <svg class="cta__icon cta__icon--wa" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M12 3C7.03 3 3 6.73 3 11.33c0 2.24.96 4.27 2.53 5.76L4.85 21l4.15-1.55c.94.26 1.95.4 3 .4 4.97 0 9-3.73 9-8.33S16.97 3 12 3Z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -1081,7 +1215,7 @@
     <div class="footer-wrap">
       <section>
         <div class="footer-brand">FASTGAS2GO</div>
-        <div class="footer-meta">Snel, discreet en 24/7 bereikbaar. FASTGAS2GO bezorgt in Amsterdam en omstreken met focus op snelheid, privacy en service.</div>
+        <div class="footer-meta">Snel, discreet en 24/7 bereikbaar. FASTGAS2GO bezorgt in Amsterdam en omstreken met focus op <span class="seo-keyword">fastgas</span>, <span class="seo-keyword">lachgas</span> en <span class="seo-keyword">n2o</span> service.</div>
       </section>
 
       <section>
@@ -1099,8 +1233,8 @@
       <section>
         <h3 class="footer-title">Contact & service</h3>
         <ul class="footer-list">
-          <li><a class="footer-link" href="tel:+31616467173">+31 6 16467173</a></li>
-          <li><a class="footer-link" href="https://wa.me/31616467173">WhatsApp direct</a></li>
+          <li><a class="footer-link" href="tel:+31687086079">+31 6 87086079</a></li>
+          <li><a class="footer-link" href="https://wa.me/31687086079">WhatsApp direct</a></li>
           <li class="footer-note">24/7 bereikbaar</li>
           <li class="footer-note">Gemiddeld binnen 20 minuten bezorgd</li>
         </ul>
@@ -1125,8 +1259,18 @@
       const areasGroup = document.getElementById("areas-group");
       const areasToggle = areasGroup?.querySelector(".menu-subtoggle");
       const footerAreasLink = document.getElementById("footer-areas-link");
+      const menuBrandFill = document.querySelector(".menu-brand-fill[data-home-link]");
+      const debugRunId = "desktop-baseline";
 
       const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+      // #region agent log
+      window.addEventListener("load", () => {
+        const heroCopyRect = document.querySelector(".hero-copy")?.getBoundingClientRect();
+        const ctaStackRect = document.querySelector(".cta-stack")?.getBoundingClientRect();
+        fetch('http://127.0.0.1:7650/ingest/53d66ec2-b24e-41ab-b43a-6094a5ef3c41',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'34b64b'},body:JSON.stringify({sessionId:'34b64b',runId:debugRunId,hypothesisId:'D1',location:'index.html:script',message:'desktop_layout_metrics',data:{isDesktop:window.innerWidth>=1024,innerWidth:window.innerWidth,innerHeight:window.innerHeight,heroCopyTop:heroCopyRect?Math.round(heroCopyRect.top):null,heroCopyWidth:heroCopyRect?Math.round(heroCopyRect.width):null,ctaTop:ctaStackRect?Math.round(ctaStackRect.top):null,ctaWidth:ctaStackRect?Math.round(ctaStackRect.width):null},timestamp:Date.now()})}).catch(()=>{});
+      }, { once: true });
+      // #endregion
 
       const waitForVideoReady = (video) => new Promise((resolve) => {
         if (!(video instanceof HTMLVideoElement)) {
@@ -1244,6 +1388,23 @@
               areasToggle.scrollIntoView({ behavior: "smooth", block: "start" });
               areasToggle.focus({ preventScroll: true });
             }, 220);
+          }
+        });
+      }
+
+      if (menuBrandFill instanceof HTMLElement) {
+        const goHome = () => {
+          const target = menuBrandFill.dataset.homeLink;
+          if (target) {
+            window.location.href = target;
+          }
+        };
+
+        menuBrandFill.addEventListener("click", goHome);
+        menuBrandFill.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            goHome();
           }
         });
       }
