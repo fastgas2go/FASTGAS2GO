@@ -45,6 +45,17 @@
       flex-direction: column;
     }
 
+    @media (max-width: 1024px) {
+      body {
+        background:
+          url("achtergrond-boven.png") center top / contain no-repeat,
+          url("achtergrond-onder.png") center center / contain no-repeat,
+          url("achtergrond-verlenging.png") center bottom / contain repeat-y,
+          linear-gradient(to bottom, rgba(4, 10, 18, 0.14) 0%, rgba(2, 6, 13, 0.52) 100%),
+          #02060d;
+      }
+    }
+
     body.is-loading {
       overflow: hidden;
       touch-action: none;
@@ -100,7 +111,7 @@
       width: 46px;
       height: 46px;
       border-radius: 12px;
-      border: 1px solid rgba(175, 208, 245, 0.28);
+      border: 1px solid rgba(154, 206, 255, 0.34);
       background: rgba(8, 18, 34, 0.62);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
@@ -121,7 +132,7 @@
       display: block;
       width: 18px;
       height: 2px;
-      background: currentColor;
+      background: #ffd84a;
       border-radius: 999px;
       content: "";
       transition: transform 220ms ease, opacity 220ms ease;
@@ -196,9 +207,48 @@
       border-radius: 10px;
       border: 1px solid rgba(141, 199, 255, 0.28);
       background: rgba(11, 24, 43, 0.52);
-      color: #eef5ff;
+      color: #ffd84a;
       font: 700 1.3rem/1 "Inter", "Segoe UI", Arial, sans-serif;
       cursor: pointer;
+    }
+
+    .menu-brand-fill {
+      all: unset;
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 18px 12px 10px;
+      border-top: 1px solid rgba(141, 199, 255, 0.2);
+      display: grid;
+      gap: 2px;
+      min-height: clamp(220px, 36vh, 320px);
+      align-content: center;
+      line-height: 0.95;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      font-weight: 800;
+      font: 800 clamp(2.4rem, 11vw, 4.8rem) / 1 "Inter", "Segoe UI", Arial, sans-serif;
+      color: #f2f7ff;
+      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+      user-select: none;
+      cursor: pointer;
+    }
+
+    .menu-brand-fill span {
+      display: block;
+    }
+
+    .menu-links > .menu-brand-fill:hover,
+    .menu-links > .menu-brand-fill:focus-visible,
+    .menu-links > .menu-brand-fill:active {
+      color: #f2f7ff;
+      outline: none;
+    }
+
+    .menu-brand-fill span:last-child {
+      color: #ffd84a;
+      text-shadow:
+        0 0 8px rgba(255, 216, 74, 0.45),
+        0 0 18px rgba(255, 216, 74, 0.2);
     }
 
     .menu-links { display: grid; gap: 10px; padding: 0 2px; }
@@ -224,7 +274,7 @@
     .menu-panel a:hover,
     .menu-subtoggle:hover { border-color: rgba(154, 214, 255, 0.42); background: rgba(14, 32, 58, 0.52); }
     .menu-subtoggle { width: 100%; cursor: pointer; display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
-    .menu-subtoggle::after { content: "+"; font-weight: 700; opacity: 0.92; transition: transform 180ms ease; }
+    .menu-subtoggle::after { content: "+"; font-weight: 700; color: #ffd84a; opacity: 0.92; transition: transform 180ms ease; }
     .menu-submenu {
       margin: 0;
       padding: 0 0 0 10px;
@@ -269,6 +319,7 @@
 
     .hero-box { opacity: 0; animation: pageEnter 860ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards; animation-delay: 220ms; }
     .eyebrow { margin: 0 0 8px; font-size: 0.82rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(175, 210, 255, 0.84); font-weight: 700; }
+    .eyebrow { color: #ffd84a; }
     h1 { margin: 0; font-size: clamp(1.5rem, 4.8vw, 2.35rem); line-height: 1.13; letter-spacing: 0.02em; color: #f7fbff; text-transform: uppercase; }
     .hero-intro { margin: 12px 0 0; color: rgba(220, 236, 255, 0.92); line-height: 1.66; font-size: clamp(0.96rem, 2.2vw, 1.06rem); }
 
@@ -291,26 +342,39 @@
       font-weight: 600;
     }
 
+    .channel-title {
+      margin: 0;
+    }
+
+    .channel-box:nth-child(2) .channel-title,
+    .channel-box:nth-child(2) .channel-link {
+      color: #ffd84a;
+    }
+
     .service-box { opacity: 0; animation: pageEnter 900ms cubic-bezier(0.22, 0.61, 0.36, 1) forwards; animation-delay: 520ms; }
     .service-title { margin: 0 0 10px; font-size: clamp(1.03rem, 2.4vw, 1.24rem); color: #f3f8ff; letter-spacing: 0.01em; }
     .service-text { margin: 0; color: rgba(187, 209, 237, 0.9); line-height: 1.6; }
 
     .site-footer {
-      width: min(980px, 100%);
-      margin: 0 auto clamp(20px, 4vh, 30px);
-      padding: 16px clamp(14px, 3.3vw, 30px) 0;
-      color: rgba(190, 213, 241, 0.82);
+      position: relative;
+      margin-top: -1px;
+      background: #000;
+      color: #d9e8ff;
+      padding: 24px clamp(14px, 3.6vw, 22px) calc(22px + env(safe-area-inset-bottom, 0px));
       font-size: 0.9rem;
     }
     .site-footer__links {
+      width: min(980px, 100%);
+      margin: 0 auto 12px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px 16px;
-      margin-bottom: 12px;
     }
     .site-footer__links a { color: #dceaff; text-decoration: none; }
     .site-footer__links a:hover { color: #f7fbff; }
     .site-footer__bottom {
+      width: min(980px, 100%);
+      margin: 0 auto;
       border-top: 1px solid rgba(113, 164, 232, 0.2);
       padding-top: 12px;
       display: flex;
@@ -319,6 +383,15 @@
       justify-content: space-between;
       font-size: 0.84rem;
       color: rgba(170, 196, 230, 0.74);
+    }
+
+    .seo-keyword {
+      color: #ffd84a;
+      font-weight: 700;
+    }
+
+    .service-title {
+      color: #ffd84a;
     }
 
     @keyframes preloaderSpin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
@@ -387,6 +460,12 @@
           <li><a href="" data-area-link="true">Edam</a></li>
         </ul>
       </div>
+      <a href="contact.html">Contact</a>
+      <div class="menu-brand-fill" role="link" tabindex="0" aria-label="Ga naar fastgas2go.nl" data-home-link="https://fastgas2go.nl">
+        <span>FAST</span>
+        <span>GAS</span>
+        <span>2GO</span>
+      </div>
     </div>
   </nav>
 
@@ -394,7 +473,7 @@
     <section class="hero-box">
       <p class="eyebrow">Contact</p>
       <h1>Direct contact met FASTGAS2GO</h1>
-      <p class="hero-intro">FASTGAS2GO is 24/7 bereikbaar. Voor snelle service in Amsterdam en omgeving kies je het kanaal dat het beste past: bellen of WhatsApp.</p>
+      <p class="hero-intro">FASTGAS2GO is 24/7 bereikbaar. Voor snelle service in Amsterdam en omgeving kies je het kanaal dat het beste past: <span class="seo-keyword">fastgas</span>, <span class="seo-keyword">lachgas</span> of <span class="seo-keyword">n2o</span> contact via bellen of WhatsApp.</p>
     </section>
 
     <section class="channel-grid">
@@ -406,7 +485,7 @@
           <h2 class="channel-title">Telefonisch</h2>
         </div>
         <p class="channel-text">Bel direct voor snelle afstemming en directe support.</p>
-        <a class="channel-link" href="tel:+31616467173">+31 6 16467173</a>
+        <a class="channel-link" href="tel:+31687086079">+31 6 87086079</a>
       </article>
 
       <article class="channel-box" style="--box-delay: 390ms;">
@@ -417,7 +496,7 @@
           <h2 class="channel-title">WhatsApp</h2>
         </div>
         <p class="channel-text">Snel chatten met ons team via WhatsApp, 24/7 beschikbaar.</p>
-        <a class="channel-link" href="https://wa.me/31616467173">Start WhatsApp</a>
+        <a class="channel-link" href="https://wa.me/31687086079">Start WhatsApp</a>
       </article>
 
     </section>
@@ -453,8 +532,18 @@
       const closeBtn = document.querySelector(".menu-close");
       const areasGroup = document.getElementById("areas-group");
       const areasToggle = areasGroup?.querySelector(".menu-subtoggle");
+      const menuBrandFill = document.querySelector(".menu-brand-fill[data-home-link]");
+      const debugRunId = "desktop-baseline";
 
       const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
+
+      // #region agent log
+      window.addEventListener("load", () => {
+        const pageRect = document.querySelector(".page")?.getBoundingClientRect();
+        const heroRect = document.querySelector(".hero-box")?.getBoundingClientRect();
+        fetch('http://127.0.0.1:7650/ingest/53d66ec2-b24e-41ab-b43a-6094a5ef3c41',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'34b64b'},body:JSON.stringify({sessionId:'34b64b',runId:debugRunId,hypothesisId:'D2',location:'contact.html:script',message:'desktop_layout_metrics',data:{isDesktop:window.innerWidth>=1024,innerWidth:window.innerWidth,pageWidth:pageRect?Math.round(pageRect.width):null,pageTop:pageRect?Math.round(pageRect.top):null,heroWidth:heroRect?Math.round(heroRect.width):null},timestamp:Date.now()})}).catch(()=>{});
+      }, { once: true });
+      // #endregion
 
       const hidePreloader = () => {
         if (preloader instanceof HTMLElement) {
@@ -514,6 +603,23 @@
           areasToggle.setAttribute("aria-expanded", String(isOpen));
           if (isOpen && areaItems) {
             applyStagger(areaItems, "--sub-stagger", 45, 60);
+          }
+        });
+      }
+
+      if (menuBrandFill instanceof HTMLElement) {
+        const goHome = () => {
+          const target = menuBrandFill.dataset.homeLink;
+          if (target) {
+            window.location.href = target;
+          }
+        };
+
+        menuBrandFill.addEventListener("click", goHome);
+        menuBrandFill.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            goHome();
           }
         });
       }
