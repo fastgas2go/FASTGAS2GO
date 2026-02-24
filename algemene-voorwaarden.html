@@ -27,6 +27,17 @@
       display: flex;
       flex-direction: column;
     }
+
+    @media (max-width: 1024px) {
+      body {
+        background:
+          url("achtergrond-boven.png") center top / contain no-repeat,
+          url("achtergrond-onder.png") center center / contain no-repeat,
+          url("achtergrond-verlenging.png") center bottom / contain repeat-y,
+          linear-gradient(to bottom, rgba(4, 10, 18, 0.14) 0%, rgba(2, 6, 13, 0.52) 100%),
+          #02060d;
+      }
+    }
     .page {
       width: min(980px, 100%);
       margin: 0 auto;
@@ -74,21 +85,25 @@
     .stack { display: grid; gap: 12px; }
     .meta { color: rgba(180, 204, 235, 0.76); font-size: 0.9rem; }
     .site-footer {
-      width: min(980px, 100%);
-      margin: 0 auto clamp(20px, 4vh, 30px);
-      padding: 0 clamp(14px, 3.2vw, 28px);
-      color: rgba(190, 213, 241, 0.82);
+      position: relative;
+      margin-top: -1px;
+      background: #000;
+      color: #d9e8ff;
+      padding: 24px clamp(14px, 3.6vw, 22px) calc(22px + env(safe-area-inset-bottom, 0px));
       font-size: 0.9rem;
     }
     .site-footer__links {
+      width: min(980px, 100%);
+      margin: 0 auto 12px;
       display: flex;
       flex-wrap: wrap;
       gap: 10px 16px;
-      margin-bottom: 12px;
     }
     .site-footer__links a { color: #dceaff; text-decoration: none; }
     .site-footer__links a:hover { color: #f7fbff; }
     .site-footer__bottom {
+      width: min(980px, 100%);
+      margin: 0 auto;
       border-top: 1px solid rgba(113, 164, 232, 0.2);
       padding-top: 12px;
       display: flex;
@@ -97,6 +112,15 @@
       justify-content: space-between;
       font-size: 0.84rem;
       color: rgba(170, 196, 230, 0.74);
+    }
+
+    .seo-keyword {
+      color: #ffd84a;
+      font-weight: 700;
+    }
+
+    h1 {
+      color: #ffd84a;
     }
   </style>
 </head>
@@ -116,7 +140,7 @@
       </div>
       <div>
         <h2>2. Dienstverlening</h2>
-        <p>FASTGAS2GO streeft naar snelle, duidelijke en professionele service. Beschikbaarheid, responstijden en verwerking kunnen variëren door drukte, locatie of overmacht.</p>
+        <p>FASTGAS2GO streeft naar snelle, duidelijke en professionele service voor <span class="seo-keyword">fastgas</span>, <span class="seo-keyword">lachgas</span> en <span class="seo-keyword">n2o</span>. Beschikbaarheid, responstijden en verwerking kunnen variëren door drukte, locatie of overmacht.</p>
       </div>
       <div>
         <h2>3. Bereikbaarheid en openingstijden</h2>
