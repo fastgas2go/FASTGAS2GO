@@ -1260,17 +1260,8 @@
       const areasToggle = areasGroup?.querySelector(".menu-subtoggle");
       const footerAreasLink = document.getElementById("footer-areas-link");
       const menuBrandFill = document.querySelector(".menu-brand-fill[data-home-link]");
-      const debugRunId = "desktop-baseline";
 
       const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
-
-      // #region agent log
-      window.addEventListener("load", () => {
-        const heroCopyRect = document.querySelector(".hero-copy")?.getBoundingClientRect();
-        const ctaStackRect = document.querySelector(".cta-stack")?.getBoundingClientRect();
-        fetch('http://127.0.0.1:7650/ingest/53d66ec2-b24e-41ab-b43a-6094a5ef3c41',{method:'POST',headers:{'Content-Type':'application/json','X-Debug-Session-Id':'34b64b'},body:JSON.stringify({sessionId:'34b64b',runId:debugRunId,hypothesisId:'D1',location:'index.html:script',message:'desktop_layout_metrics',data:{isDesktop:window.innerWidth>=1024,innerWidth:window.innerWidth,innerHeight:window.innerHeight,heroCopyTop:heroCopyRect?Math.round(heroCopyRect.top):null,heroCopyWidth:heroCopyRect?Math.round(heroCopyRect.width):null,ctaTop:ctaStackRect?Math.round(ctaStackRect.top):null,ctaWidth:ctaStackRect?Math.round(ctaStackRect.width):null},timestamp:Date.now()})}).catch(()=>{});
-      }, { once: true });
-      // #endregion
 
       const waitForVideoReady = (video) => new Promise((resolve) => {
         if (!(video instanceof HTMLVideoElement)) {
@@ -1415,18 +1406,15 @@
           const targetHref = cta.getAttribute("href");
           if (!targetHref) return;
 
-          cta.classList.remove("is-clicked");
-          void cta.offsetWidth;
-          cta.classList.add("is-clicked");
-
           const isPhoneOrWhatsApp =
             targetHref.startsWith("tel:") || targetHref.includes("wa.me");
           const isHttpLink = /^https?:\/\//i.test(targetHref);
           const isInternalLink = !isPhoneOrWhatsApp && !isHttpLink && !targetHref.startsWith("//");
+          if (isPhoneOrWhatsApp) return;
 
-          window.setTimeout(() => {
-            cta.classList.remove("is-clicked");
-          }, 220);
+          cta.classList.remove("is-clicked");
+          void cta.offsetWidth;
+          cta.classList.add("is-clicked");
 
           if (isInternalLink) {
             event.preventDefault();
@@ -1434,6 +1422,10 @@
               window.location.href = targetHref;
             }, 220);
           }
+
+          window.setTimeout(() => {
+            cta.classList.remove("is-clicked");
+          }, 220);
         });
       });
 
