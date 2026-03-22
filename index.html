@@ -5,24 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FASTGAS2GO | Fastgas, Lachgas en N2O wegwerp tanks 24/7 in Amsterdam | Lachgas kopen</title>
   <meta name="description" content="FASTGAS2GO: 24/7 bezorgservice voor fastgas, lachgas en n2o in Amsterdam en omgeving. Snel, discreet en professioneel met support via telefoon en WhatsApp." />
-  <meta name="keywords" content="lachgas, fastgas,lachgas tank, fastgas tank, n2o, fastgas amsterdam, lachgas amsterdam, n2o amsterdam, fastgas bezorgen, lachgas bezorgen, n2o bezorgen, 24/7 service, discreet bezorgd, amsterdam bezorgservice" />
+  <meta name="keywords" content="lachgas, fastgas, lachgas tank, fastgas tank, n2o, fastgas amsterdam, lachgas amsterdam, n2o amsterdam, fastgas bezorgen, lachgas bezorgen, n2o bezorgen, 24/7 service, discreet bezorgd, amsterdam bezorgservice" />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <meta name="author" content="FASTGAS2GO" />
   <meta name="theme-color" content="#040912" />
-  <link rel="canonical" href="https://www.fastgas2go.nl" />
+  <link rel="canonical" href="https://fastgas2go.nl" />
 
   <meta property="og:type" content="website" />
   <meta property="og:title" content="FASTGAS2GO | Fastgas, Lachgas en N2O 24/7 tanks in Amsterdam" />
   <meta property="og:description" content="Snel, discreet en 24/7 bereikbaar. FASTGAS2GO bezorgt lachgas in Amsterdam & omstreken." />
-  <meta property="og:url" content="https://www.fastgas2go.nl" />
+  <meta property="og:url" content="https://fastgas2go.nl" />
   <meta property="og:image" content="https://fastgas2go.nl/achtergrond-onder.png" />
   <meta property="og:image:secure_url" content="https://fastgas2go.nl/achtergrond-onder.png" />
-  <meta property="og:type" content="achtergrond-boven-dynamisch.mp4" />
   <meta property="og:locale" content="nl_NL" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="FASTGAS2GO | Fastgas, Lachgas en N2O 24/7 in Amsterdam" />
   <meta name="twitter:description" content="FASTGAS2GO: snelle en discrete 24/7 service in Amsterdam en omgeving." />
-  <meta name="twitter:image" content="https://amsterdam.fastgas2go.nl/achtergrond-onder.png" />
+  <meta name="twitter:image" content="https://fastgas2go.nl/achtergrond-onder.png" />
 
   <script type="application/ld+json">
     {
@@ -80,6 +79,81 @@
     body.is-loading {
       overflow: hidden;
       touch-action: none;
+    }
+
+    body.age-gate-open {
+      overflow: hidden;
+      touch-action: none;
+    }
+
+    .age-gate {
+      position: fixed;
+      inset: 0;
+      z-index: 140;
+      display: grid;
+      place-items: center;
+      padding: 20px;
+      background:
+        radial-gradient(circle at 50% 20%, rgba(72, 132, 206, 0.24), rgba(4, 10, 18, 0) 54%),
+        rgba(2, 7, 14, 0.94);
+    }
+
+    .age-gate.is-hidden {
+      display: none;
+    }
+
+    .age-gate__card {
+      width: min(520px, 100%);
+      border: 1px solid rgba(141, 199, 255, 0.28);
+      border-radius: 16px;
+      padding: 20px;
+      background: rgba(8, 18, 34, 0.84);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+      color: #eef5ff;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      text-align: left;
+    }
+
+    .age-gate__title {
+      margin: 0 0 8px;
+      font: 800 clamp(1.2rem, 3.8vw, 1.65rem) / 1.2 "Inter", "Segoe UI", Arial, sans-serif;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      color: #ffd84a;
+    }
+
+    .age-gate__text {
+      margin: 0;
+      color: rgba(229, 240, 255, 0.92);
+      line-height: 1.55;
+      font-size: 0.98rem;
+    }
+
+    .age-gate__actions {
+      margin-top: 16px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .age-gate__btn {
+      border: 1px solid rgba(147, 206, 255, 0.34);
+      border-radius: 10px;
+      padding: 10px 14px;
+      background: rgba(11, 24, 43, 0.52);
+      color: #eef5ff;
+      font: 700 0.95rem/1 "Inter", "Segoe UI", Arial, sans-serif;
+      cursor: pointer;
+    }
+
+    .age-gate__btn--confirm {
+      border-color: rgba(255, 216, 74, 0.46);
+      color: #ffd84a;
+    }
+
+    .age-gate__btn:focus-visible {
+      outline: 2px solid rgba(129, 210, 255, 0.75);
+      outline-offset: 2px;
     }
 
     .site-preloader {
@@ -1087,6 +1161,16 @@
       <span>FASTGAS2GO laden...</span>
     </div>
   </div>
+  <div class="age-gate" id="age-gate" role="dialog" aria-modal="true" aria-labelledby="age-gate-title">
+    <div class="age-gate__card">
+      <h2 class="age-gate__title" id="age-gate-title">18+ verificatie</h2>
+      <p class="age-gate__text">Je moet 18 jaar of ouder zijn om door te gaan naar de hoofdpagina van FASTGAS2GO.</p>
+      <div class="age-gate__actions">
+        <button class="age-gate__btn age-gate__btn--confirm" id="age-confirm" type="button">Ja, ik ben 18+</button>
+        <button class="age-gate__btn" id="age-decline" type="button">Nee, ik ben jonger dan 18</button>
+      </div>
+    </div>
+  </div>
 
   <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="main-menu" aria-label="Open menu">
     <span></span>
@@ -1144,7 +1228,8 @@
         </ul>
       </div>
       <a href="contact.html">Contact</a>
-      <div class="menu-brand-fill" role="link" tabindex="0" aria-label="Ga naar amsterdam.fastgas2go.nl" data-home-link="https://fastgas2go.nl">
+      <a href="wetgeving-lachgas.html">Wetgeving lachgas</a>
+      <div class="menu-brand-fill" role="link" tabindex="0" aria-label="Ga naar fastgas2go.nl" data-home-link="https://fastgas2go.nl">
         <span>FAST</span>
         <span>GAS</span>
         <span>2GO</span>
@@ -1228,6 +1313,8 @@
           <li><a class="footer-link" id="footer-areas-link" href="#areas-list">Bezorggebieden</a></li>
           <li><a class="footer-link" href="algemene-voorwaarden.html">Algemene voorwaarden</a></li>
           <li><a class="footer-link" href="privacy-beleid.html">Privacy beleid</a></li>
+          <li><a class="footer-link" href="faq.html">FAQ</a></li>
+          <li><a class="footer-link" href="wetgeving-lachgas.html">Wetgeving lachgas</a></li>
         </ul>
       </section>
 
@@ -1261,6 +1348,10 @@
       const areasToggle = areasGroup?.querySelector(".menu-subtoggle");
       const footerAreasLink = document.getElementById("footer-areas-link");
       const menuBrandFill = document.querySelector(".menu-brand-fill[data-home-link]");
+      const ageGate = document.getElementById("age-gate");
+      const ageConfirmButton = document.getElementById("age-confirm");
+      const ageDeclineButton = document.getElementById("age-decline");
+      const ageStorageKey = "fastgas2go_age_verified";
 
       const wait = (ms) => new Promise((resolve) => window.setTimeout(resolve, ms));
 
@@ -1287,18 +1378,6 @@
         video.addEventListener("error", finish, { once: true });
       });
 
-      const waitForImage = (src) => new Promise((resolve) => {
-        if (!src) {
-          resolve();
-          return;
-        }
-        const image = new Image();
-        const finish = () => resolve();
-        image.onload = finish;
-        image.onerror = finish;
-        image.src = src;
-      });
-
       const hidePreloader = () => {
         if (preloader instanceof HTMLElement) {
           preloader.classList.add("is-hidden");
@@ -1314,11 +1393,55 @@
       Promise.race([
         Promise.allSettled([
           waitForVideoReady(bgVideo),
-          waitForImage("achtergrond-onder.png"),
-          new Promise((resolve) => window.addEventListener("load", resolve, { once: true }))
+          wait(320)
         ]),
-        wait(5200)
+        wait(2200)
       ]).then(hidePreloader);
+
+      const closeAgeGate = () => {
+        if (ageGate instanceof HTMLElement) {
+          ageGate.classList.add("is-hidden");
+        }
+        body.classList.remove("age-gate-open");
+      };
+
+      const openAgeGate = () => {
+        if (ageGate instanceof HTMLElement) {
+          ageGate.classList.remove("is-hidden");
+        }
+        body.classList.add("age-gate-open");
+      };
+
+      const hasAgeConsent = () => {
+        try {
+          return window.localStorage.getItem(ageStorageKey) === "1";
+        } catch {
+          return false;
+        }
+      };
+
+      if (hasAgeConsent()) {
+        closeAgeGate();
+      } else {
+        openAgeGate();
+      }
+
+      if (ageConfirmButton instanceof HTMLButtonElement) {
+        ageConfirmButton.addEventListener("click", () => {
+          try {
+            window.localStorage.setItem(ageStorageKey, "1");
+          } catch {
+            // Ignore storage errors; user can still continue this session.
+          }
+          closeAgeGate();
+        });
+      }
+
+      if (ageDeclineButton instanceof HTMLButtonElement) {
+        ageDeclineButton.addEventListener("click", () => {
+          window.location.href = "https://www.google.com";
+        });
+      }
 
       if (!toggleBtn || !menu || !backdrop || !closeBtn) return;
       const menuItems = menu.querySelectorAll(".menu-links > *");
@@ -1449,4 +1572,3 @@
 
 </body>
 </html>
-
