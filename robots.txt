@@ -8,4 +8,4 @@ Disallow: /cgi-bin/
 # Respect crawl budget on duplicate parameters
 Disallow: /*?*
 
-Sitemap: https://amsterdam.fastgas2go.nl/sitemap.xml
+Sitemap: https://fastgas2go.nl/sitemap.xml
