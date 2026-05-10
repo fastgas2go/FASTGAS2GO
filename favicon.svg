@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="FASTGAS2GO">
+  <rect width="512" height="512" rx="96" fill="#040912"/>
+  <path fill="none" stroke="#ffd84a" stroke-width="28" stroke-linecap="round" d="M128 352V160l96 96 96-96v192"/>
+  <circle cx="352" cy="176" r="40" fill="#ffd84a"/>
+</svg>

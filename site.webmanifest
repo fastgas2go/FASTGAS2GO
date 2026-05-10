@@ -1,0 +1,24 @@
+{
+  "name": "FASTGAS2GO — Lachgas Amsterdam",
+  "short_name": "FASTGAS2GO",
+  "description": "24/7 lachgas bezorgen Amsterdam en omgeving.",
+  "start_url": "./index.html",
+  "display": "browser",
+  "background_color": "#040912",
+  "theme_color": "#040912",
+  "lang": "nl",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
